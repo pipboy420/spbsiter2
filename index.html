@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Экскурсии по Санкт-Петербургу</title>
+
+  <!-- Шрифт (пример) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" 
+    rel="stylesheet" 
+  />
+
+  <!-- Подключаем внешний файл стилей -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header>
+    <div class="logo">SPb Inside</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Главная</a></li>
+        <li><a href="#tours">Экскурсии</a></li>
+        <li><a href="#about">О компании</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <!-- Кнопка может вызывать модалку общей формы/другой функционал -->
+    <button class="cta-btn" onclick="openDetailsModal('Общая заявка', 'Хотите оформить экскурсию?', [])">
+      Заказать экскурсию
+    </button>
+  </header>
+
+  <div class="header-offset"></div>
+
+  <!-- HERO-СЕКЦИЯ -->
+  <!-- 
+    Внимание! Само фоновое изображение hero-блока 
+    задаётся в style.css (см. комментарий ниже).
+  -->
+  <section class="hero fade-up" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Откройте Санкт-Петербург заново!</h1>
+      <p>Уникальные экскурсии от профессиональных гидов с многолетним опытом.  
+      Ощутите красоту Северной столицы по-новому!</p>
+      <div class="hero-btns">
+        <button class="hero-cta" 
+                onclick="openDetailsModal('Быстрая бронь', 'Заполните форму, мы свяжемся!', [])">
+          Забронировать сейчас
+        </button>
+        <button class="secondary-btn" onclick="scrollToSection('tours')">Подробнее</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДБОРКА ЭКСКУРСИЙ -->
+  <section class="tours-section fade-up" id="tours">
+    <h2>Популярные экскурсии</h2>
+    <div class="tours-container">
+      <!-- Карточка экскурсии №1 -->
+      <div class="tour-card">
+        <!-- Вместо placeholder — изображение из папки images/image1.jpeg -->
+        <div class="tour-image" 
+             style="background-image: url('images/image1.jpeg');">
+        </div>
+        <div class="tour-content">
+          <div>
+            <h3 class="tour-title">Речная прогулка по каналам</h3>
+            <p class="tour-desc">Погрузитесь в атмосферу «северной Венеции», осмотрите главные достопримечательности прямо с воды.</p>
+          </div>
+          <div>
+            <p class="tour-price">от 1500 руб.</p>
+            <!-- Кнопка "Подробнее" вызывает модалку с каруселью фотографий -->
+            <button class="tour-btn" 
+                    onclick="openDetailsModal(
+                      'Речная прогулка по каналам',
+                      'Маршрут: Невский проспект, река Мойка, канал Грибоедова. Длительность ~1,5 часа.\\nУзнайте удивительные истории о городе!',
+                      [
+                    'images/image1.jpeg',
+                        'images/image2.jpeg',
+                        'images/image3.jpeg',
+                      ]
+                    )">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Карточка экскурсии №2 -->
+      <div class="tour-card">
+        <!-- Вместо placeholder — изображение из папки images/timage1.jpeg -->
+        <div class="tour-image" 
+             style="background-image: url('images/briges_background.jpeg');">
+        </div>
+        <div class="tour-content">
+          <div>
+            <h3 class="tour-title">Ночной развод мостов</h3>
+            <p class="tour-desc">Самое известное зрелище Петербурга! Осмотрите город с палубы теплохода в час разводки мостов.</p>
+          </div>
+          <div>
+            <p class="tour-price">от 2000 руб.</p>
+            <button class="tour-btn" 
+                    onclick="openDetailsModal(
+                      'Ночной развод мостов',
+                      'Старт в 00:30, длительность ~2 часа, объезд главных разводных мостов.\\nВеликолепная ночная подсветка и романтика!',
+                      [
+                        'images/image1.jpeg',
+                        'images/image2.jpeg'
+                      ]
+                    )">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Карточка экскурсии №3 -->
+      <div class="tour-card">
+        <!-- Вместо placeholder — изображение из папки images/tour3.jpeg -->
+        <div class="tour-image" 
+             style="background-image: url('images/tour3.jpeg');">
+        </div>
+        <div class="tour-content">
+          <div>
+            <h3 class="tour-title">Дворцовый Петербург</h3>
+            <p class="tour-desc">Экскурсия по главным дворцам и архитектурным шедеврам города. Увлекательные факты и царская роскошь.</p>
+          </div>
+          <div>
+            <p class="tour-price">от 2500 руб.</p>
+            <button class="tour-btn" 
+                    onclick="openDetailsModal(
+                      'Дворцовый Петербург',
+                      'Посещение Зимнего дворца, Михайловского дворца, особняков на набережной.\\nИстории о жизни царской семьи!',
+                      [
+                        'images/image1.jpeg',
+                        'images/image2.jpeg',
+                        'images/image3.jpeg',
+                      ]
+                    )">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК "ПОЧЕМУ ВЫБИРАЮТ НАС" -->
+  <section class="why-us fade-up">
+    <div class="why-us-container">
+      <h2>Почему выбирают нас</h2>
+      <div class="benefits">
+        <div class="benefit-item">
+          <div class="benefit-icon">⭐</div>
+          <div class="benefit-desc">Опыт работы более 10 лет</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">👩‍🎓</div>
+          <div class="benefit-desc">Лицензированные профессиональные гиды</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🚍</div>
+          <div class="benefit-desc">Комфортабельный транспорт</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">👍</div>
+          <div class="benefit-desc">Сотни положительных отзывов</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК "ОТЗЫВЫ" -->
+  <section class="reviews fade-up">
+    <h2>Отзывы наших клиентов</h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="review-author">Мария</div>
+        <div class="review-text">«Очень понравилась экскурсия по рекам и каналам! Гид замечательный, много интересных фактов услышали!»</div>
+      </div>
+      <div class="review-card">
+        <div class="review-author">Андрей</div>
+        <div class="review-text">«Отличная организация, всё чётко по времени, автобусы комфортные, успели посмотреть весь город!»</div>
+      </div>
+      <div class="review-card">
+        <div class="review-author">Светлана</div>
+        <div class="review-text">«Спонтанно решили пойти на ночную экскурсию по разводным мостам – осталось незабываемое впечатление!»</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК "О НАС" -->
+  <section class="about fade-up" id="about">
+    <div class="about-img" style="background-image: url('images/spb-team.jpeg');">
+      <!-- к примеру, фото команды -->
+    </div>
+    <div class="about-text">
+      <h2>О компании</h2>
+      <p>Наша экскурсионная компания уже более 10 лет помогает гостям и жителям Санкт-Петербурга 
+         открывать уникальные грани Северной столицы. Мы гордимся своими высококвалифицированными 
+         гидами и комфортным транспортом.</p>
+      <p>Тысячи довольных туристов доверили нам показать самые красивые и значимые места города. Присоединяйтесь!</p>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ (КОНТАКТЫ) -->
+  <footer id="contacts">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>СПб Экскурсии</h3>
+        <p>© 2025, Все права защищены.</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Контакты</h3>
+        <p>Телефон: +7 (999) 123-45-67</p>
+        <p>Email: info@spb-tours.ru</p>
+        <p>Адрес: Невский проспект, д. 10, Санкт-Петербург</p>
+      </div>
+      <div class="footer-social">
+        <h3>Мы в соцсетях</h3>
+        <ul>
+          <li><a href="#">VK</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО (с каруселью + bottom-sheet для мобильных) -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal" id="modalContent">
+      <span class="close-modal" onclick="closeDetailsModal()">×</span>
+
+      <!-- Заголовок экскурсии -->
+      <h3 id="modalTitle"></h3>
+      <!-- Краткое описание/доп. информация -->
+      <p id="modalInfo" class="modal-info"></p>
+
+      <!-- КАРУСЕЛЬ -->
+      <div class="carousel-container" id="carouselContainer">
+        <div class="carousel-slide">
+          <img src="" alt="carousel image" id="carouselImage" />
+        </div>
+        <div class="carousel-controls">
+          <button type="button" onclick="prevImage()">Prev</button>
+          <button type="button" onclick="nextImage()">Next</button>
+        </div>
+      </div>
+
+      <!-- Форма бронирования -->
+      <form onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label>Дата экскурсии:</label>
+          <input type="date" id="dateField" required />
+        </div>
+        <div class="form-group">
+          <label>Время:</label>
+          <select id="timeField">
+            <option value="12:00" selected>12:00</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ваше имя:</label>
+          <input type="text" id="nameField" placeholder="Иван" required />
+        </div>
+        <div class="form-group">
+          <label>Телефон:</label>
+          <input type="tel" id="phoneField" placeholder="+7 (___) ___-__-__" required />
+        </div>
+        <div class="form-group">
+          <label>Количество человек:</label>
+          <div class="people-buttons">
+            <button type="button" onclick="selectPeople(1)">1</button>
+            <button type="button" onclick="selectPeople(2)">2</button>
+            <button type="button" onclick="selectPeople(3)">3</button>
+            <button type="button" onclick="selectPeople(4)">4</button>
+            <button type="button" onclick="selectPeople(5)">5</button>
+            <button type="button" onclick="selectPeople('6+')">6+</button>
+          </div>
+          <input type="text" id="peopleField" value="1" hidden />
+        </div>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Подключаем скрипты -->
+  <script src="script.js"></script>
+</body>
+</html>
